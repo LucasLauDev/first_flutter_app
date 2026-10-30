@@ -36,7 +36,7 @@ class TitleSection extends StatelessWidget {
           ),
           Icon(Icons.star, color: Colors.red[500]),
           const SizedBox(width: 4),
-          Text('$starCount'),
+          Text('${starCount}k'),
         ],
       ),
     );

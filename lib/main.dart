@@ -106,10 +106,30 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
       children: [
         _buildStudentDetailsSection(),
         const TitleSection(
-          name: 'Hogwarts School of Witchcraft and Wizardry',
-          location: 'Hogsmeade, Scotland',
-          starCount: 41,
+          name: 'University of Technology Sarawak (UTS)',
+          location: 'Sibu Sarawak',
+          starCount: 100,
         ),
+        // Image Section with rounded corners matching the screenshot
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16.0),
+            child: Image.network(
+              'https://www.utusanborneo.com.my/sites/default/files/images/article/20211110/whatsappimage2021-11-10at61755pm.jpeg', // <-- Replace with your image link
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.cover,
+              // Error builder in case the link fails to load
+              errorBuilder: (context, error, stackTrace) => Container(
+                height: 200,
+                color: Colors.grey[300],
+                child: const Center(child: Icon(Icons.broken_image, size: 50, color: Colors.grey)),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16), // Adds spacing before the pickers
         _buildInteractivePickers(),
       ],
     );
